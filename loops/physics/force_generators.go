@@ -1,6 +1,6 @@
 package physics
 
-import "github.com/leafo/weeklyloops/loops"
+import "github.com/leafo/ludum-dare-50/loops"
 
 var defaultGravity = GravityGenerator{15}
 

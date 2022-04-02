@@ -1,3 +1,4 @@
+.PHONY: game
 
-game: main.go *.go
+game:
 	go build -o game

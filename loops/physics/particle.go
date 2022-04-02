@@ -1,6 +1,6 @@
 package physics
 
-import "github.com/leafo/weeklyloops/loops"
+import "github.com/leafo/ludum-dare-50/loops"
 
 type Particle3d struct {
 	Pos         loops.Vec3
