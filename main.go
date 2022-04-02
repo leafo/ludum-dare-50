@@ -1,9 +1,10 @@
 package main
 
 import (
+	"image/color"
 	"runtime"
 
-	"github.com/go-gl/glfw/v3.3/glfw"
+	"github.com/leafo/ludum-dare-50/loops"
 )
 
 func init() {
@@ -11,25 +12,17 @@ func init() {
 }
 
 func main() {
-	err := glfw.Init()
+	loop := loops.NewLoopWindow()
+	loop.Title = "Ludum Dare 50"
 
-	if err != nil {
-		panic(err)
+	loop.Draw = func(t float64, g *loops.Graphics) {
+		g.SetColor(color.RGBA{20, 20, 20, 255})
+		g.SetMat(loops.NewIdentityMat4())
+		g.DrawRect(-1, -1, 2, 2)
+
+		g.SetColor(color.RGBA{255, 20, 20, 255})
+		g.DrawRect(-0.5, -0.5, 1, 1)
 	}
 
-	defer glfw.Terminate()
-
-	window, err := glfw.CreateWindow(640, 480, "Testing", nil, nil)
-
-	if err != nil {
-		panic(err)
-	}
-
-	window.MakeContextCurrent()
-
-	for !window.ShouldClose() {
-		window.SwapBuffers()
-		glfw.PollEvents()
-	}
-
+	loop.Run()
 }
